@@ -29,8 +29,8 @@
         },
         "bodies": {
             "description":"Liste der Körperschaften (`oparl:Body`-Objekte), die auf dem System existieren.",
-            "link": "Body",
-            "backlink":"system",
+            "ref": "Body",
+            "backref":"system",
             "cardinality": "1:n",
             "type": "array",
             "minItems": 0
