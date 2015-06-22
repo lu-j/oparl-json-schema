@@ -1,0 +1,111 @@
+{
+    "title": "Paper",
+    "description": "Dieser Objekttyp dient der Abbildung von Drucksachen in der parlamentarischen Arbeit, wie zum Beispiel Anfragen, Anträgen und Beschlussvorlagen.\n\nDrucksachen werden in Form einer Beratung (oparl:Consultation) im Rahmen eines Tagesordnungspunkts (oparl:AgendaItem) einer Sitzung (oparl:Meeting) behandelt.\n\nDrucksachen spielen in der schriftlichen wie mündlichen Kommunikation eine besondere Rolle, da in vielen Texten auf bestimmte Drucksachen Bezug genommen wird. Hierbei kommen in parlamentarischen Informationssystemen unveränderliche Kennungen der Drucksachen zum Einsatz.",
+    "type": "object",
+    "required": [
+        "id",
+        "type",
+        "body",
+        "name",
+        "mainDocument"
+    ],
+    "oparl:optional": [
+        "reference",
+        "relatedPaper",
+        "auxiliaryDocument",
+        "location",
+        "consultation",
+        "keyword"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uri"
+        },
+        "type": {
+            "type": "string",
+            "pattern": "^http://oparl\\.org/schema/1\\.0/Paper$"
+        },
+        "body": {
+            "description":"Körperschaft, zu der die Drucksache gehört.",
+            "type": "string",
+            "format": "uri",
+            "ref": "Body",
+            "cardinality": "n:1"
+        },
+        "name": {
+            "description":"Titel der Drucksache.",
+            "type": "string"
+        },
+        "reference": {
+            "description":"Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
+            "type": "string"
+        },
+        "publishedDate": {
+            "description":"Veröffentlichungsdatum der Drucksache.",
+            "type": "string",
+            "oneOf": [
+                {"format": "date-time"},
+                {"pattern": "^\\d{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3(0|1)))$"}
+            ]
+        },
+        "paperType": {
+            "description":"Art der Drucksache, z. B. Beantwortung einer Anfrage. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
+            "type": "string",
+            "format": "uri"
+        },
+        "relatedPaper": {
+            "description":"Inhaltlich verwandte Drucksachen.",
+            "type": "string",
+            "format": "uri",
+            "ref": "Paper"
+        },
+        "mainFile": {
+            "description":"Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
+            "type": "string",
+            "format": "uri",
+            "ref": "File",
+            "backref": "paper"
+        },
+        "auxiliaryFile": {
+            "description":"Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben. Typ: Liste von Objekten des Typs `oparl:File`. Vgl. [Objektlisten](#objektlisten).",
+            "type": "array",
+            "format": "uri",
+            "ref": "File",
+            "backref": "paper"
+        },
+        "location": {
+            "description":"Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
+            "type": "array",
+            "ref": "Location"
+        },
+        "originator": {
+            "description":"Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
+            "type": "array",
+            "link_many": ["Person", "Organization"]
+        },
+        "consultation": {
+            "description":"Beratungen der Drucksache.",
+            "type": "array",
+            "ref": "Consultation",
+            "backref": "paper",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
+        },
+        "modified": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "keyword": {
+            "type": "string",
+            "format": "uri"
+        },
+        "underDirectionof": {
+            "description":"Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
+            "type": "array",
+            "ref": "Organization"
+        }
+    }
+}
