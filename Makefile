@@ -14,7 +14,7 @@ LATEX_TEMPLATE = resources/template.tex
 all: html pdf odt docx txt epub
 
 html: common_dependencies $(PNG_IMAGES) 
-	$(PANDOC_COMMAND) --section-divs --self-contained \
+	$(PANDOC_COMMAND) --to html5 --section-divs --self-contained \
 	    -o ../$(OUT_FOLDER)/$(FILENAME).html *.md
 
 pdf: common_dependencies
