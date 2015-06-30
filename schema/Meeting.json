@@ -28,40 +28,40 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Meeting$"
         },
         "name": {
-            "description":"",
+            "description": "",
             "type": "string"
         },
         "start": {
-            "description":"Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
+            "description": "Datum und Uhrzeit des Anfangszeitpunkts der Sitzung. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Startzeitpunkt sein.",
             "type": "string",
             "format": "date-time"
         },
         "end": {
-            "description":"Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
+            "description": "Endzeitpunkt der Sitzung als Datum/Uhrzeit. Bei einer zukünftigen Sitzung ist dies der geplante Zeitpunkt, bei einer stattgefundenen KANN es der tatsächliche Endzeitpunkt sein.",
             "type": "string",
             "format": "date-time"
         },
         "streetAddress": {
-            "description":"Straße und Hausnummer des Sitzungsortes.",
+            "description": "Straße und Hausnummer des Sitzungsortes.",
             "type": "string"
         },
         "postalCode": {
-            "description":"Postleitzahl des Sitzungsortes.",
+            "description": "Postleitzahl des Sitzungsortes.",
             "type": "string"
         },
         "locality": {
-            "description":"Ortsangabe des Sitzungsortes.",
+            "description": "Ortsangabe des Sitzungsortes.",
             "type": "string"
         },
         "location": {
-            "description":"Sitzungsort in Form von Geodaten.",
+            "description": "Sitzungsort in Form von Geodaten.",
             "format": "uri",
             "oparl:ref": "Location",
             "oparl:cardinality": "n:1",
             "type": "string"
         },
         "organization": {
-            "description":"Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium. TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.",
+            "description": "Gruppierungen, denen die Sitzung zugeordnet ist. Im Regelfall wird hier eine Gruppierung verknüpft sein, es kann jedoch auch gemeinsame Sitzungen mehrerer Gruppierungen geben. Das erste Element ist dann das federführende Gremium. TODO: Eigenschaft für federführendes Gremium ergänzen und dann Ordnung entfernen. invers zur Eigenschaft `meeting` der Klasse `oparl:Organization`.",
             "format": "uri",
             "oparl:ref": "Organization",
             "oparl:backref": "meeting",
@@ -69,19 +69,19 @@
             "type": "array"
         },
         "chairPerson": {
-            "description":"Vorsitz der Sitzung",
+            "description": "Vorsitz der Sitzung",
             "oparl:ref": "Person",
             "type": "string",
             "oparl:cardinality": "n:1"
         },
         "scribe": {
-            "description":"Schriftführer, Protokollant.",
+            "description": "Schriftführer, Protokollant.",
             "oparl:ref": "Person",
             "type": "string",
             "oparl:cardinality": "n:1"
         },
         "participant": {
-            "description":"Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.",
+            "description": "Teilnehmer der Sitzung. Bei einer Sitzung in der Zukunft sind dies die geladenen Teilnehmer, bei einer stattgefundenen Sitzung SOLL die Liste nur diejenigen Teilnehmer umfassen, die tatsächlich an der Sitzung teilgenommen haben.",
             "items": {
                 "format": "uri",
                 "type": "string"
@@ -91,7 +91,7 @@
             "type": "array"
         },
         "invitation": {
-            "description":"Einladungsdokument zur Sitzung.",
+            "description": "Einladungsdokument zur Sitzung.",
             "format": "uri",
             "oparl:ref": "File",
             "oparl:cardinality": "n:1",
@@ -99,7 +99,7 @@
             "type": "string"
         },
         "resultsProtocol": {
-            "description":"Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
+            "description": "Ergebnisprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nachdem Stattfinden der Sitzung vorkommen.",
             "format": "uri",
             "oparl:ref": "File",
             "oparl:backref": "meeting",
@@ -107,7 +107,7 @@
             "type": "string"
         },
         "verbatimProtocol": {
-            "description":"Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
+            "description": "Wortprotokoll zur Sitzung. Diese Eigenschaft kann selbstverständlich erst nach dem Stattfinden der Sitzung vorkommen.",
             "format": "uri",
             "oparl:ref": "File",
             "oparl:backref": "meeting",
@@ -115,7 +115,7 @@
             "type": "string"
         },
         "auxiliaryFile": {
-            "description":"Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.",
+            "description": "Dateianhang zur Sitzung. Hiermit sind Dateien gemeint, die üblicherweise mit der Einladung zu einer Sitzung verteilt werden, und die nicht bereits über einzelne Tagesordnungspunkte referenziert sind.",
             "items": {
                 "format": "uri",
                 "type": "string"
@@ -126,7 +126,7 @@
             "type": "array"
         },
         "agendaItem": {
-            "description":"Tagesordnungspunkte der Sitzung.Die Reihenfolge ist relevant.Es kann Sitzungen ohne TOPs geben.",
+            "description": "Tagesordnungspunkte der Sitzung.Die Reihenfolge ist relevant.Es kann Sitzungen ohne TOPs geben.",
             "items": {
                 "format": "uri",
                 "type": "string"

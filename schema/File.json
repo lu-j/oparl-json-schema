@@ -27,51 +27,51 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/File$"
         },
         "fileName": {
-            "description":"Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
+            "description": "Dateiname, unter dem die Datei in einem Dateisystem gespeichert werden kann. Beispiel: \"einedatei.pdf\". Da der Name den kompletten Unicode-Zeichenumang nutzen kann, SOLLEN Clients ggf. selbst dafür sorgen, diesen beim Speichern in ein Dateisystem den lokalen Erfordernissen anzupassen.",
             "type": "string"
         },
         "name": {
-            "description":"Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie \".pdf\" SOLLEN NICHT enthalten sein. Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch sein.",
+            "description": "Ein zur Anzeige für Endnutzer bestimmter Name für dieses Objekt. Leerzeichen DÜRFEN enthalten sein, Datei-Endungen wie \".pdf\" SOLLEN NICHT enthalten sein. Der Wert SOLL NICHT mit dem Wert der Eigenschaft `fileName` identisch sein.",
             "type": "string"
         },
         "mimeType": {
-            "description":"MIME-Type des Inhalts ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>]. Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier `application/octet-stream` zu verwenden.",
+            "description": "MIME-Type des Inhalts ^[vgl. RFC2046: <http://tools.ietf.org/html/rfc2046>]. Sollte das System einer Datei keinen spezifischen Typ zuweisen können, wird EMPFOHLEN, hier `application/octet-stream` zu verwenden.",
             "type": "string"
         },
         "date": {
-            "description":"Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden.",
+            "description": "Datum und Zeit der Erstellung der Datei. Wahlweise, falls dies nicht vom System kommuniziert werden kann oder soll, KANN alternativ der Zeitpunkt der Veröffentlichung ausgegeben werden.",
             "type": "string",
             "format": "date-time"
         },
         "modified": {
-            "description":"Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier soll immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
+            "description": "Datum und Zeit der letzten Änderung der Datei bzw. der Metadaten. Als Änderung der Datei gilt alles, was den Inhalt der Datei verändert und beispielsweise zu einer Veränderung der Prüfsumme führen würde, nicht aber die Änderung des Dateinamens (siehe Eigenschaft `name`). Als Änderung der Metadaten hingegen würde beispielsweise die Änderung des Dateinamens gelten. Hier soll immer das größere der beiden Daten ausgegeben werden, also der am wenigsten lang zurückliegende Änderungszeitpunkt.",
             "type": "string",
             "format": "date-time"
         },
         "size": {
-            "description":"Größe der Datei in Bytes.",
+            "description": "Größe der Datei in Bytes.",
             "type": "integer"
         },
         "sha1Checksum": {
-            "description":"SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
+            "description": "SHA1-Prüfsumme des Dateiinhalts in Hexadezimal-Schreibweise.",
             "type": "string"
         },
         "text": {
-            "description":"Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann.",
+            "description": "Reine Text-Wiedergabe des Dateiinhalts, sofern dieser in Textform wiedergegeben werden kann.",
             "type": "string"
         },
         "accessUrl": {
-            "description":"URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
+            "description": "URL zum allgemeinen Zugriff auf die Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
             "type": "string",
             "format": "uri"
         },
         "downloadUrl": {
-            "description":"URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
+            "description": "URL zum Download der Datei. Näheres unter [Dateizugriffe](#dateizugriff).",
             "type": "string",
             "format": "uri"
         },
         "paper": {
-            "description":"Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN diese Drucksachen über diese Eigenschaft angegeben werden.",
+            "description": "Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN diese Drucksachen über diese Eigenschaft angegeben werden.",
             "type": "array",
             "oparl:ref": "Paper",
             "oparl:backref": "auxiliaryFile",
@@ -82,7 +82,7 @@
             }
         },
         "meeting": {
-            "description":"Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden.",
+            "description": "Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden.",
             "type": "array",
             "oparl:ref": "Meeting",
             "oparl:backref": "auxiliaryFile",
@@ -93,14 +93,14 @@
             }
         },
         "masterFile": {
-            "description":"Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
+            "description": "Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "type": "string",
             "format": "uri",
             "oparl:ref": "File",
             "oparl:cardinality": "n:1"
         },
         "derivativeFile": {
-            "description":"Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
+            "description": "Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "type": "array",
             "oparl:ref": "File",
             "oparl:cardinality": "1:n",
@@ -110,12 +110,12 @@
             }
         },
         "license": {
-            "description":"Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
+            "description": "Lizenz, unter der die Datei angeboten wird. Wenn diese Eigenschaft verwendet wird, dann ist sie anstelle einer globalen Angabe im übergeordneten `oparl:Body`- bzw. `oparl:System`-Objekt maßgeblich.^[vgl. [license](#eigenschaft_license)]",
             "type": "string",
             "format": "uri"
         },
         "FileRole": {
-            "description":"Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein. Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "description": "Rolle, Funktion der Datei in Bezug auf eine Sitzung. Die Eigenschaft SOLL entsprechend nur in Verbindung mit der Eigenschaft `meeting` gesetzt sein. Siehe dazu [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
             "type": "string"
         },
         "keyword": {

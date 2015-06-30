@@ -24,7 +24,7 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/AgendaItem$"
         },
         "meeting": {
-            "description":"Sitzung, der der Tagesordnungspunkt zugeordnet ist.",
+            "description": "Sitzung, der der Tagesordnungspunkt zugeordnet ist.",
             "format": "uri",
             "oparl:ref": "Meeting",
             "oparl:backref": "agendaItem",
@@ -32,19 +32,19 @@
             "type": "string"
         },
         "number": {
-            "description":"Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
+            "description": "Gliederungs-\"Nummer\" des Tagesordnungspunktes. Eine beliebige Zeichenkette, wie z. B. \"10.\", \"10.1\", \"C\", \"c)\" o. ä. Die Reihenfolge wird nicht dadurch, sondern durch die Reihenfolge der TOPs im `agendaItem`-Attribut von `oparl:Meeting` festgelegt.",
             "type": "string"
         },
         "name": {
-            "description":"Das Thema des Tagesordnungspunktes.",
+            "description": "Das Thema des Tagesordnungspunktes.",
             "type": "string"
         },
         "public": {
-            "description":"Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.",
+            "description": "Kennzeichnet, ob der Tagesordnungspunkt zur Behandlung in öffentlicher Sitzung vorgesehen ist/war. Es wird ein Wahrheitswert (`true` oder `false`) erwartet.",
             "type": "boolean"
         },
         "consultation": {
-            "description":"Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
+            "description": "Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
             "format": "uri",
             "oparl:ref": "Consultation",
             "oparl:backref": "agendaItem",
@@ -52,15 +52,15 @@
             "type": "string"
         },
         "result": {
-            "description":"Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\". Diese Eigenschaft  funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
+            "description": "Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\". Diese Eigenschaft  funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
             "type": "string"
         },
         "resolution": {
-            "description":"Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text oder eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
+            "description": "Falls in diesem Tagesordnungspunkt ein Beschluss gefasst wurde, kann hier ein Text oder eine Datei angegeben werden. Das ist besonders dann in der Praxis relevant, wenn der gefasste Beschluss (z. B. durch Änderungsantrag) von der Beschlussvorlage abweicht.",
             "type": "string"
         },
         "auxiliaryFile": {
-            "description":"Dateianhänge zum Tagesordnungspunkt.",
+            "description": "Dateianhänge zum Tagesordnungspunkt.",
             "type": "array",
             "format": "uri",
             "oparl:ref": "File",

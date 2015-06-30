@@ -23,7 +23,7 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Consultation$"
         },
         "paper": {
-            "description":"Drucksache, die beraten wird.",
+            "description": "Drucksache, die beraten wird.",
             "type": "string",
             "format": "uri",
             "oparl:ref": "Paper",
@@ -31,7 +31,7 @@
             "oparl:cardinality": "n:1"
         },
         "agendaItem": {
-            "description":"Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
+            "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
             "type": "string",
             "format": "uri",
             "oparl:ref": "AgendaItem",
@@ -39,7 +39,7 @@
             "oparl:cardinality": "n:1"
         },
         "organization": {
-            "description":"Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
+            "description": "Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
             "oneOf": [
                 {
                     "type": "string",
@@ -53,16 +53,16 @@
                     }
                 }
             ],
-            "type":"array",
+            "type": "array",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1"
         },
         "authoritative": {
-            "description":"Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",
+            "description": "Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",
             "type": "boolean"
         },
         "role": {
-            "description":"Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in  [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben  entweder als String oder als URL zu einem `skos:Concept` Objekt.",
+            "description": "Rolle oder Funktion der Beratung. Zum Beispiel Anhörung, Entscheidung, Kenntnisnahme, Vorberatung usw. Diese Eigenschaft funktioniert wie in  [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben  entweder als String oder als URL zu einem `skos:Concept` Objekt.",
             "type": "string"
         },
         "keyword": {

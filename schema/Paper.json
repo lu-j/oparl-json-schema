@@ -31,42 +31,46 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Paper$"
         },
         "body": {
-            "description":"Körperschaft, zu der die Drucksache gehört.",
+            "description": "Körperschaft, zu der die Drucksache gehört.",
             "type": "string",
             "format": "uri",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1"
         },
         "name": {
-            "description":"Titel der Drucksache.",
+            "description": "Titel der Drucksache.",
             "type": "string"
         },
         "reference": {
-            "description":"Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
+            "description": "Kennung bzw. Aktenzeichen der Drucksache, mit der sie in der parlamentarischen Arbeit eindeutig referenziert werden kann.",
             "type": "string"
         },
         "publishedDate": {
-            "description":"Veröffentlichungsdatum der Drucksache.",
+            "description": "Veröffentlichungsdatum der Drucksache.",
             "type": "string",
             "oneOf": [
-                {"format": "date-time"},
-                {"pattern": "^\\d{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3(0|1)))$"}
+                {
+                    "format": "date-time"
+                },
+                {
+                    "pattern": "^\\d{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3(0|1)))$"
+                }
             ]
         },
         "paperType": {
-            "description":"Art der Drucksache, z. B. Beantwortung einer Anfrage. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
+            "description": "Art der Drucksache, z. B. Beantwortung einer Anfrage. Diese Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
             "type": "string",
             "format": "uri"
         },
         "relatedPaper": {
-            "description":"Inhaltlich verwandte Drucksachen.",
+            "description": "Inhaltlich verwandte Drucksachen.",
             "type": "array",
             "format": "uri",
             "oparl:ref": "Paper",
             "oparl:cardinality": "1:n"
         },
         "mainFile": {
-            "description":"Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
+            "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
             "type": "string",
             "format": "uri",
             "oparl:ref": "File",
@@ -74,7 +78,7 @@
             "oparl:cardinality": "1:1"
         },
         "auxiliaryFile": {
-            "description":"Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben.",
+            "description": "Anhänge zur Drucksache. Diese sind, in Abgrenzung zur Haupt-Datei (`mainFile`), untergeordnet und es kann beliebig viele davon geben.",
             "type": "array",
             "format": "uri",
             "oparl:ref": "File",
@@ -82,18 +86,21 @@
             "oparl:cardinality": "n:m"
         },
         "location": {
-            "description":"Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
+            "description": "Sofern die Drucksache einen inhaltlichen Ortsbezug hat, beschreibt diese Eigenschaft den Ort in Textform und/oder in Form von Geodaten.",
             "type": "array",
             "oparl:ref": "Location",
             "oparl:cardinality": "n:m"
         },
         "originator": {
-            "description":"Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
+            "description": "Urheber der Drucksache, kann eine oder mehrere Person(en) bzw. Gruppierung(en) sein.",
             "type": "array",
-            "link_many": ["Person", "Organization"]
+            "link_many": [
+                "Person",
+                "Organization"
+            ]
         },
         "consultation": {
-            "description":"Beratungen der Drucksache.",
+            "description": "Beratungen der Drucksache.",
             "type": "array",
             "items": {
                 "type": "string",
@@ -112,7 +119,7 @@
             "format": "uri"
         },
         "underDirectionof": {
-            "description":"Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
+            "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",
             "type": "array",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:m"

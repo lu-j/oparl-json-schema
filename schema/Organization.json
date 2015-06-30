@@ -28,18 +28,18 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Organization$"
         },
         "body": {
-            "description":"Körperschaft, zu der diese Gruppierung gehört.",
+            "description": "Körperschaft, zu der diese Gruppierung gehört.",
             "format": "uri",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1",
             "type": "string"
         },
         "name": {
-            "description":"Offizielle (lange) Form des Namens der Gruppierung.",
+            "description": "Offizielle (lange) Form des Namens der Gruppierung.",
             "type": "string"
         },
         "membership": {
-            "description":"Mitgliedschaften dieser Gruppierung.",
+            "description": "Mitgliedschaften dieser Gruppierung.",
             "items": {
                 "format": "uri",
                 "type": "string"
@@ -50,18 +50,18 @@
             "type": "array"
         },
         "meeting": {
-            "description":"Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
+            "description": "Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
             "oparl:ref": "Meeting",
             "oparl:backref": "organization",
             "oparl:cardinality": "n:m",
-            "type":"array"
+            "type": "array"
         },
         "shortName": {
-            "description":"Der Name der Gruppierung als Kurzform.",
+            "description": "Der Name der Gruppierung als Kurzform.",
             "type": "string"
         },
         "post": {
-            "description":"Positionen, die für diese Gruppierung vorgesehen sind. Die Werte dieser Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String. Die Strings bzw. `prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Mitglied\" und nicht \"Mitglied | Mitglied\". Weitere Beispiele: \"Vorsitzender | Vorsitzende\", \"1. Stellvertreter | 1. Stellvertreterin\", \"2. Stellvertreter | 2. Stellvertreterin\", \"Schriftführer | Schriftführerin\", \"Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
+            "description": "Positionen, die für diese Gruppierung vorgesehen sind. Die Werte dieser Eigenschaft funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String. Die Strings bzw. `prefLabel`-Eigenschaften der Objekte SOLLEN sowohl die männliche als auch die weibliche Form enthalten, und zwar in dem Muster \"männliche Form | weibliche Form\" (genau in der Reihenfolge mit einem Leerzeichen vor und nach dem \"|\"). Wenn sich beide Formen nicht unterscheiden, dann DARF die Form nur einmal verwendet werden: \"Mitglied\" und nicht \"Mitglied | Mitglied\". Weitere Beispiele: \"Vorsitzender | Vorsitzende\", \"1. Stellvertreter | 1. Stellvertreterin\", \"2. Stellvertreter | 2. Stellvertreterin\", \"Schriftführer | Schriftführerin\", \"Stellvertretender Schriftführer | Stellvertretende Schriftführerin",
             "items": {
                 "type": "string",
                 "format": "uri"
@@ -69,14 +69,14 @@
             "type": "array"
         },
         "subOrganizationOf": {
-            "description":"Ggf. URL der übergeordneten Gruppierung.",
+            "description": "Ggf. URL der übergeordneten Gruppierung.",
             "format": "uri",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1",
             "type": "string"
         },
         "classification": {
-            "description":"Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\". Die Angabe soll möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
+            "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\". Die Angabe soll möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",
             "type": "string"
         },
         "keyword": {
@@ -86,12 +86,12 @@
             "type": "array"
         },
         "startDate": {
-            "description":"Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.",
+            "description": "Gründungsdatum der Gruppierung. Kann z. B. das Datum der konstituierenden Sitzung sein.",
             "type": "string",
             "format": "date-time"
         },
         "endDate": {
-            "description":"Datum des letzten Tages der Existenz der Gruppierung.",
+            "description": "Datum des letzten Tages der Existenz der Gruppierung.",
             "type": "string",
             "format": "date-time"
         },
@@ -104,7 +104,7 @@
             "format": "date-time"
         },
         "website": {
-            "description":"Allgemeine Website der Gruppierung.",
+            "description": "Allgemeine Website der Gruppierung.",
             "type": "string",
             "format": "uri"
         }

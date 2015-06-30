@@ -19,11 +19,11 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Location$"
         },
         "description": {
-            "description":"Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.",
+            "description": "Textliche Beschreibung eines Orts, z. B. in Form einer Adresse.",
             "type": "string"
         },
         "geometry": {
-            "description":"Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.",
+            "description": "Geodaten-Repräsentation des Orts. Ist diese Eigenschaft gesetzt, MUSS ihr Wert der Spezifikation von Well-Known Text (WKT) entsprechen.",
             "type": "string"
         },
         "keyword": {

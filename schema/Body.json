@@ -26,42 +26,42 @@
             "pattern": "^http://oparl\\.org/schema/1\\.0/Body$"
         },
         "system": {
-            "description":"System, zu dem dieses Objekt gehört.",
+            "description": "System, zu dem dieses Objekt gehört.",
             "format": "uri",
             "oparl:ref": "System",
-            "backref":"bodies",
+            "backref": "bodies",
             "oparl:cardinality": "n:1",
             "type": "string"
         },
         "shortName": {
-            "description":"Kurzer Name der Körperschaft.",
+            "description": "Kurzer Name der Körperschaft.",
             "type": "string"
         },
         "name": {
-            "description":"Der offizielle lange Name der Körperschaft.",
+            "description": "Der offizielle lange Name der Körperschaft.",
             "type": "string"
         },
         "website": {
-            "description":"Allgemeine Website der Körperschaft.",
+            "description": "Allgemeine Website der Körperschaft.",
             "type": "string",
             "format": "ipv6"
         },
         "license": {
-            "description":"Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft [`license`](#eigenschaft_license).",
+            "description": "Lizenz, die für die Daten, die über diese API abgerufen werden können, gilt, sofern nicht am einzelnen Objekt anders angegeben. Siehe dazu auch die übergreifende Beschreibung zur Eigenschaft [`license`](#eigenschaft_license).",
             "type": "string",
             "format": "uri"
         },
         "licenseValidSince": {
-            "description":"Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
+            "description": "Zeitpunkt, seit dem die unter `license` angegebene Lizenz gilt. Vorsicht bei Änderungen der Lizenz die zu restriktiveren Bedingungen führen.",
             "type": "string",
             "format": "date-time"
         },
         "rgs": {
-            "description":"Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
+            "description": "Regionalschlüssel der Körperschaft als zwölfstellige Zeichenkette^[Regionalschlüssel können im [Gemeindeverzeichnis (GV-ISys) des Statistischen Bundesamtes](https://www.destatis.de/DE/ZahlenFakten/LaenderRegionen/Regionales/Gemeindeverzeichnis/Gemeindeverzeichnis.html) eingesehen werden].",
             "type": "string"
         },
         "equivalentBody": {
-            "description":"Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.",
+            "description": "Dient der Angabe beliebig vieler zusätzlicher URLs, die dieselbe Körperschaft repräsentieren. Hier können beispielsweise, sofern vorhanden, der entsprechende Eintrag der Gemeinsamen Normdatei der Deutschen Nationalbibliothek^[Gemeinsame Normdatei <http://www.dnb.de/gnd>] oder der DBPedia^[DBPedia <http://www.dbpedia.org/>] oder der Wikipedia^[Wikipedia <http://de.wikipedia.org/>] angegeben werden.",
             "items": {
                 "type": "string",
                 "format": "uri"
@@ -69,17 +69,17 @@
             "type": "array"
         },
         "contactEmail": {
-            "description":"Dient der Angabe einer Kontakt-E-Mail-Adresse mit \"mailto:\"-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
+            "description": "Dient der Angabe einer Kontakt-E-Mail-Adresse mit \"mailto:\"-Schema. Die Adresse soll die Kontaktaufnahme zu einer für die Körperschaft und idealerweise das parlamentarische Informationssystem zuständigen Stelle ermöglichen. ",
             "type": "string",
             "format": "email",
             "pattern": "^mailto:.+$"
         },
         "contactName": {
-            "description":"Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",
+            "description": "Name oder Bezeichnung der mit `contactEmail` erreichbaren Stelle.",
             "type": "string"
         },
         "paper": {
-            "description":"Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "description": "Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
             "items": {
                 "format": "uri",
                 "type": "string"
@@ -90,18 +90,18 @@
             "type": "array"
         },
         "member": {
-            "description":"Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "description": "Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
             "items": {
                 "format": "uri",
                 "type": "string"
             },
             "oparl:ref": "Person",
-            "backref":"body",
+            "backref": "body",
             "oparl:cardinality": "n:m",
             "type": "array"
         },
         "meeting": {
-            "description":"Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "description": "Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
             "items": {
                 "format": "uri",
                 "type": "string"
@@ -111,13 +111,13 @@
             "type": "array"
         },
         "organization": {
-            "description":"Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "description": "Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
             "items": {
                 "format": "uri",
                 "type": "string"
             },
             "oparl:ref": "Organization",
-            "backref":"body",
+            "backref": "body",
             "oparl:cardinality": "1:n",
             "type": "array"
         },
