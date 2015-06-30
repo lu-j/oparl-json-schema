@@ -27,11 +27,11 @@
         },
         "system": {
             "description": "System, zu dem dieses Objekt gehört.",
-            "format": "uri",
             "oparl:ref": "System",
-            "backref": "bodies",
+            "oparl:backref": "bodies",
             "oparl:cardinality": "n:1",
-            "type": "string"
+            "type": "string",
+            "format": "uri"
         },
         "shortName": {
             "description": "Kurzer Name der Körperschaft.",
@@ -80,56 +80,56 @@
         },
         "paper": {
             "description": "Drucksachen unter dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
+            "oparl:ref": "Paper",
+            "oparl:backref": "body",
+            "oparl:cardinality": "1:n",
+            "type": "array",
             "items": {
                 "format": "uri",
                 "type": "string"
-            },
-            "oparl:ref": "Paper",
-            "backref": "body",
-            "oparl:cardinality": "1:n",
-            "type": "array"
+            }
         },
         "member": {
             "description": "Personen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            },
             "oparl:ref": "Person",
-            "backref": "body",
+            "oparl:backref": "body",
             "oparl:cardinality": "n:m",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
         },
         "meeting": {
             "description": "Sitzungen dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            },
             "oparl:ref": "Meeting",
             "oparl:cardinality": "1:n",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "organization": {
             "description": "Gruppierungen in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            },
             "oparl:ref": "Organization",
-            "backref": "body",
+            "oparl:backref": "body",
             "oparl:cardinality": "1:n",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "legislativeTerm": {
             "description": "Wahlperioden in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            },
             "oparl:ref": "LegislativeTerm",
             "oparl:cardinality": "1:n",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "classification": {
             "description": "Art der Körperschaft.",

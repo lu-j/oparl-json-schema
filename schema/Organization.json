@@ -29,10 +29,10 @@
         },
         "body": {
             "description": "Körperschaft, zu der diese Gruppierung gehört.",
-            "format": "uri",
             "oparl:ref": "Body",
             "oparl:cardinality": "n:1",
-            "type": "string"
+            "type": "string",
+            "format": "uri"
         },
         "name": {
             "description": "Offizielle (lange) Form des Namens der Gruppierung.",
@@ -40,21 +40,25 @@
         },
         "membership": {
             "description": "Mitgliedschaften dieser Gruppierung.",
-            "items": {
-                "format": "uri",
-                "type": "string"
-            },
             "oparl:ref": "Membership",
             "oparl:cardinality": "1:n",
             "oparl:backref": "organization",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "meeting": {
             "description": "Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
             "oparl:ref": "Meeting",
             "oparl:backref": "organization",
             "oparl:cardinality": "n:m",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "shortName": {
             "description": "Der Name der Gruppierung als Kurzform.",
@@ -70,10 +74,10 @@
         },
         "subOrganizationOf": {
             "description": "Ggf. URL der übergeordneten Gruppierung.",
-            "format": "uri",
             "oparl:ref": "Organization",
             "oparl:cardinality": "n:1",
-            "type": "string"
+            "type": "string",
+            "format": "uri"
         },
         "classification": {
             "description": "Die Art der Gruppierung. In Frage kommen z.B. \"Rat\", \"Hauptausschuss\", \"Ausschuss\", \"Beirat\", \"Projektbeirat\", \"Kommission\", \"AG\", \"Verwaltungsrat\". Die Angabe soll möglichst präzise erfolgen. Vgl. [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung).",

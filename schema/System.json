@@ -33,7 +33,10 @@
             "oparl:backref": "system",
             "oparl:cardinality": "1:n",
             "type": "array",
-            "minItems": 0
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
         },
         "name": {
             "description": "Nutzerfreundlicher Name für das System, mit dessen Hilfe Nutzerinnen und Nutzer das System erkennen und von anderen unterscheiden können.",

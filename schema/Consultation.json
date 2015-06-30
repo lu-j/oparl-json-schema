@@ -24,38 +24,30 @@
         },
         "paper": {
             "description": "Drucksache, die beraten wird.",
-            "type": "string",
-            "format": "uri",
             "oparl:ref": "Paper",
             "oparl:backref": "consultation",
-            "oparl:cardinality": "n:1"
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
         },
         "agendaItem": {
             "description": "Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
-            "type": "string",
-            "format": "uri",
             "oparl:ref": "AgendaItem",
             "oparl:backref": "consultation",
-            "oparl:cardinality": "n:1"
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
         },
         "organization": {
             "description": "Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
-            "oneOf": [
-                {
-                    "type": "string",
-                    "format": "uri"
-                },
-                {
-                    "type": "array",
-                    "items": {
-                        "type": "string",
-                        "format": "uri"
-                    }
-                }
-            ],
-            "type": "array",
             "oparl:ref": "Organization",
-            "oparl:cardinality": "n:1"
+            "oparl:backref": "meeting",
+            "oparl:cardinality": "n:m",
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }            
         },
         "authoritative": {
             "description": "Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",

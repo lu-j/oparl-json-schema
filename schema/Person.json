@@ -34,10 +34,10 @@
         },
         "body": {
             "description": "Körperschaft, zu der die Person gehört.",
-            "type": "string",
-            "format": "uri",
             "oparl:ref": "Body",
-            "oparl:cardinality": "n:1"
+            "oparl:cardinality": "n:1",
+            "type": "string",
+            "format": "uri"
         },
         "name": {
             "description": "Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.",
@@ -98,14 +98,14 @@
         },
         "membership": {
             "description": "Mitgliedschaften der Person in Gruppierungen, z. B. Gremien und Fraktionen.",
-            "items": {
-                "type": "string",
-                "format": "uri"
-            },
             "oparl:ref": "Membership",
             "oparl:backref": "person",
             "oparl:cardinality": "1:n",
-            "type": "array"
+            "type": "array",
+            "items": {
+                "type": "string",
+                "format": "uri"
+            }
         },
         "keyword": {
             "items": {
