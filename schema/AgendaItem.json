@@ -6,8 +6,13 @@
         "type",
         "id",
         "name",
-        "meeting",
-        "consultation"
+        "meeting"
+    ],
+    "oparl:optional": [
+        "number",
+        "resolution",
+        "auxiliaryFile",
+        "keyword"
     ],
     "properties": {
         "id": {
@@ -21,9 +26,9 @@
         "meeting": {
             "description":"Sitzung, der der Tagesordnungspunkt zugeordnet ist.",
             "format": "uri",
-            "ref": "Meeting",
-            "backref": "agendaItem",
-            "cardinality": "n:1",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "agendaItem",
+            "oparl:cardinality": "n:1",
             "type": "string"
         },
         "number": {
@@ -40,14 +45,11 @@
         },
         "consultation": {
             "description":"Beratung, die diesem Tagesordnungspunkt zugewiesen ist.",
-            "items": {
-                "format": "uri"
-            },
             "format": "uri",
-            "ref": "Consultation",
-            "backref": "agendaItem",
-            "cardinality": "1:n",
-            "type": "array"
+            "oparl:ref": "Consultation",
+            "oparl:backref": "agendaItem",
+            "oparl:cardinality": "1:1",
+            "type": "string"
         },
         "result": {
             "description":"Kategorische Information darüber, welches Ergebnis die Beratung des Tagesordnungspunktes erbracht hat, in der Bedeutung etwa \"Unverändert beschlossen\" oder \"Geändert beschlossen\". Diese Eigenschaft  funktioniert wie in [Vokabulare zur Klassifizierung](#vokabulare_klassifizierung) beschrieben entweder als URL zu einem `skos:Concept` oder als String.",
@@ -61,8 +63,8 @@
             "description":"Dateianhänge zum Tagesordnungspunkt.",
             "type": "array",
             "format": "uri",
-            "ref": "File",
-            "cardinality": "n:m",
+            "oparl:ref": "File",
+            "oparl:cardinality": "n:m",
             "items": {
                 "type": "string",
                 "format": "uri"

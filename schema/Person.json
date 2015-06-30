@@ -5,6 +5,7 @@
     "required": [
         "type",
         "id",
+        "body",
         "name"
     ],
     "oparl:optional": [
@@ -19,7 +20,7 @@
         "postalCode",
         "locality",
         "status",
-        "hasMembership",
+        "membership",
         "keyword"
     ],
     "properties": {
@@ -35,8 +36,8 @@
             "description":"Körperschaft, zu der die Person gehört.",
             "type": "string",
             "format": "uri",
-            "ref": "Body",
-            "cardinality": "n:1"
+            "oparl:ref": "Body",
+            "oparl:cardinality": "n:1"
         },
         "name": {
             "description":"Der vollständige Name der Person mit akademischem Grad und dem gebräuchlichen Vornamen, wie er zur Anzeige durch den Client genutzt werden kann.",
@@ -101,9 +102,9 @@
                 "type": "string",
                 "format": "uri"
             },
-            "ref": "Membership",
-            "backref":"person",
-            "cardinality": "1:n",
+            "oparl:ref": "Membership",
+            "oparl:backref":"person",
+            "oparl:cardinality": "1:n",
             "type": "array"
         },
         "keyword": {

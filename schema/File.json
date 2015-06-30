@@ -4,11 +4,18 @@
     "type": "object",
     "required": [
         "fileName",
-        "mimeType",
         "date",
         "modified",
         "size",
         "accessUrl"
+    ],
+    "oparl:optional": [
+        "sha1Checksum",
+        "masterFile",
+        "derivativeFile",
+        "license",
+        "FileRole",
+        "keyword"
     ],
     "properties": {
         "id": {
@@ -66,9 +73,9 @@
         "paper": {
             "description":"Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN diese Drucksachen über diese Eigenschaft angegeben werden.",
             "type": "array",
-            "ref": "Paper",
-            "backref": "auxiliaryFile",
-            "cardinality": "n:m",
+            "oparl:ref": "Paper",
+            "oparl:backref": "auxiliaryFile",
+            "oparl:cardinality": "n:m",
             "items": {
                 "type": "string",
                 "format": "uri"
@@ -77,9 +84,9 @@
         "meeting": {
             "description":"Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden.",
             "type": "array",
-            "ref": "Meeting",
-            "backref": "auxiliaryFile",
-            "cardinality": "n:m",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "auxiliaryFile",
+            "oparl:cardinality": "n:m",
             "items": {
                 "type": "string",
                 "format": "uri"
@@ -89,14 +96,14 @@
             "description":"Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "type": "string",
             "format": "uri",
-            "ref": "File",
-            "cardinality": "n:1"
+            "oparl:ref": "File",
+            "oparl:cardinality": "n:1"
         },
         "derivativeFile": {
             "description":"Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "type": "array",
-            "ref": "File",
-            "cardinality": "1:n",
+            "oparl:ref": "File",
+            "oparl:cardinality": "1:n",
             "items": {
                 "type": "string",
                 "format": "uri"

@@ -6,8 +6,17 @@
         "type",
         "id",
         "body",
-        "nameLong",
+        "name",
+        "meeting",
         "membership"
+    ],
+    "oparl:optional": [
+        "shortName",
+        "post",
+        "endDate",
+        "website",
+        "keyword",
+        "subOrganizationOf"
     ],
     "properties": {
         "id": {
@@ -21,8 +30,8 @@
         "body": {
             "description":"Körperschaft, zu der diese Gruppierung gehört.",
             "format": "uri",
-            "ref": "Body",
-            "cardinality": "n:1",
+            "oparl:ref": "Body",
+            "oparl:cardinality": "n:1",
             "type": "string"
         },
         "name": {
@@ -35,16 +44,16 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "Membership",
-            "cardinality": "1:n",
-            "backref": "organization",
+            "oparl:ref": "Membership",
+            "oparl:cardinality": "1:n",
+            "oparl:backref": "organization",
             "type": "array"
         },
         "meeting": {
             "description":"Sitzungen dieser Gruppierung. Invers zur Eigenschaft `organization` der Klasse `oparl:Meeting`. Da die Anzahl der Sitzungen stetig wachsen kann, wird EMPFOHLEN, die Liste über eine eigene URL verfügbar zu machen und damit Paginierung sowie die Filterung mittels startDate und endDate Parametern zu ermöglichen. Siehe dazu auch [Objektlisten](#objektlisten).",
-            "ref": "Meeting",
-            "backref": "organization",
-            "cardinality": "n:m",
+            "oparl:ref": "Meeting",
+            "oparl:backref": "organization",
+            "oparl:cardinality": "n:m",
             "type":"array"
         },
         "shortName": {
@@ -62,8 +71,8 @@
         "subOrganizationOf": {
             "description":"Ggf. URL der übergeordneten Gruppierung.",
             "format": "uri",
-            "ref": "Organization",
-            "cardinality": "n:1",
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:1",
             "type": "string"
         },
         "classification": {

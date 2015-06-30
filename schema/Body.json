@@ -12,6 +12,10 @@
         "meeting",
         "organization"
     ],
+    "oparl:optional": [
+        "contactName",
+        "classification"
+    ],
     "properties": {
         "id": {
             "type": "string",
@@ -24,9 +28,9 @@
         "system": {
             "description":"System, zu dem dieses Objekt gehört.",
             "format": "uri",
-            "ref": "System",
+            "oparl:ref": "System",
             "backref":"bodies",
-            "cardinality": "n:1",
+            "oparl:cardinality": "n:1",
             "type": "string"
         },
         "shortName": {
@@ -80,9 +84,9 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "Paper",
+            "oparl:ref": "Paper",
             "backref": "body",
-            "cardinality": "1:n",
+            "oparl:cardinality": "1:n",
             "type": "array"
         },
         "member": {
@@ -91,9 +95,9 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "Person",
+            "oparl:ref": "Person",
             "backref":"body",
-            "cardinality": "n:m",
+            "oparl:cardinality": "n:m",
             "type": "array"
         },
         "meeting": {
@@ -102,8 +106,8 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "Meeting",
-            "cardinality": "1:n",
+            "oparl:ref": "Meeting",
+            "oparl:cardinality": "1:n",
             "type": "array"
         },
         "organization": {
@@ -112,9 +116,9 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "Organization",
+            "oparl:ref": "Organization",
             "backref":"body",
-            "cardinality": "1:n",
+            "oparl:cardinality": "1:n",
             "type": "array"
         },
         "legislativeTerm": {
@@ -123,9 +127,13 @@
                 "format": "uri",
                 "type": "string"
             },
-            "ref": "LegislativeTerm",
-            "cardinality": "1:n",
+            "oparl:ref": "LegislativeTerm",
+            "oparl:cardinality": "1:n",
             "type": "array"
+        },
+        "classification": {
+            "description": "Art der Körperschaft.",
+            "type": "string"
         },
         "keyword": {
             "type": "array",

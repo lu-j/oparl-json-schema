@@ -6,8 +6,12 @@
         "id",
         "type",
         "paper",
-        "agendaItem",
         "organization"
+    ],
+    "oparl:optional": [
+        "authoritative",
+        "role",
+        "keyword"
     ],
     "properties": {
         "id": {
@@ -22,17 +26,17 @@
             "description":"Drucksache, die beraten wird.",
             "type": "string",
             "format": "uri",
-            "ref": "Paper",
-            "backref": "consultation",
-            "cardinality": "n:1"
+            "oparl:ref": "Paper",
+            "oparl:backref": "consultation",
+            "oparl:cardinality": "n:1"
         },
         "agendaItem": {
             "description":"Tagesordnungspunkt, unter dem die Drucksache beraten wird.",
             "type": "string",
             "format": "uri",
-            "ref": "AgendaItem",
-            "backref": "consultation",
-            "cardinality": "n:1"
+            "oparl:ref": "AgendaItem",
+            "oparl:backref": "consultation",
+            "oparl:cardinality": "n:1"
         },
         "organization": {
             "description":"Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
@@ -50,8 +54,8 @@
                 }
             ],
             "type":"array",
-            "ref": "Organization",
-            "cardinality": "n:1"
+            "oparl:ref": "Organization",
+            "oparl:cardinality": "n:1"
         },
         "authoritative": {
             "description":"Drückt aus, ob bei dieser Beratung ein Beschluss zu der Drucksache gefasst wird (`true`) wird oder nicht (`false`).",
