@@ -3,6 +3,7 @@
 import json
 import os
 import sys
+import glob
 import codecs
 import collections
 import argparse
@@ -20,50 +21,77 @@ objects = ["System", "Body", "Organization", "Person", "Meeting", "AgendaItem", 
 sys.stdout = codecs.getwriter('utf8')(sys.stdout)
 sys.stderr = codecs.getwriter('utf8')(sys.stderr)
 
-def dump_json_examples(name):
-    pass
 
-def generate_markdown_table(obj):
-    name = obj["title"]
+def schema_to_md_table(schema):
+    name = schema["title"]
+    md = "## " + name + "\n"
 
-    returnval = "## " + name + "\n"
     propspace = 26
-    typespace = 18
+    typespace = 30
     descspace = 80
 
-    if "description" in obj:
-        returnval += obj["description"] + "\n"
-    returnval += "\n"
-    returnval += "-"*(propspace+typespace+descspace) + "\n"
-    returnval += "Name" + " "*(propspace-4) + "Typ" + " "*(typespace-3) + "Beschreibung" +" "*(descspace-12) + "\n"
+    if "description" in schema:
+        md += schema["description"] + "\n"
 
-    returnval += "-"*(propspace-1) + " " + "-"*(typespace-1)+ " " + "-"*(descspace) + "\n"
-    for prop in obj["properties"]:
-        if prop in ["id", "type", "body", "created", "modified", "keyword"]:
-            continue
-        prop_whitespace = propspace - len(prop)
-        type = (obj["properties"][prop]["type"])
-        if isinstance(type,list):
+    md += "\n"
+
+    # Tabellenkopf
+    md += "-"*(propspace + typespace + descspace) + "\n"
+    md += "Name" + " "*(propspace - len("Name")) + "Typ" + " "*(typespace - len("Typ")) + "Beschreibung" +" "*(descspace - len("Beschreibung")) + "\n"
+    md += "-"*(propspace - 1) + " " + "-"*(typespace - 1)+ " " + "-"*(descspace) + "\n"
+
+    for prop_name, prop in schema["properties"].items():
+        type = prop["type"]
+
+        if isinstance(type, list):
             type = "/".join(type)
-        type_whitespace = typespace - len(type)
-        if "description" in obj["properties"][prop]:
-            returnval += "`"+ prop + "`" + prop_whitespace* u" " + type + type_whitespace*u" " + obj["properties"][prop]["description"] + "\n"
-            returnval += "\n"
 
-    returnval += "-"*(propspace+typespace+descspace) + "\n"
-    returnval += "\n"
-    returnval += "**Beispiel**\n\n\n"
-    filepath = os.path.join(EXAMPLES_FOLDER, name + ".json")
-    example = (json.load(codecs.open(filepath, encoding='utf-8'),object_pairs_hook=collections.OrderedDict))
-    returnval += "~~~~ {.json}\n"
-    returnval += json.dumps(example, ensure_ascii=False, indent=4) + "\n"
-    returnval += "~~~~\n\n"
-    returnval += "\pagebreak\n"
-    returnval += "\n"
-    return returnval
+        if "oparl:ref" in prop and type == "string":
+            type = type + ": " + prop["oparl:ref"] + "-id"
+
+        if "oparl:ref" in prop and type == "array":
+            type = type + ": " + prop["oparl:ref"] + "-ids"
+
+        if "description" in prop:
+           description = prop["description"]
+        else:
+           description = ""
+
+        if "oparl:optional" in schema and prop_name in schema["required"] and description  != "":
+            description =  "**ZWINGEND** " + description
+
+        if "oparl:optional" in schema and prop_name in schema["oparl:optional"] and description != "":
+            description =  "*OPTIONAL* " + description
+
+        md += "`"+ prop_name + "`" + (propspace - len(prop_name))*u" " + type + (typespace - len(type))*u" " + description + "\n\n"
+
+    md += "-"*(propspace + typespace + descspace) + "\n\n"
+
+    md += json_examples_to_md(name)
+    return md
+
+
+def json_examples_to_md(name):
+    md = ""
+    filepath = os.path.join(EXAMPLES_FOLDER, name)
+    examples = glob.glob(filepath + '-[0-9][0-9].json')
+    for nr, examplepath in enumerate(examples):
+        if len(examples) == 1:
+            md += "**Beispiel**\n\n"
+        else:
+            md += "**Beispiel " + str(nr + 1) + "**\n\n"
+
+        example = json.load(codecs.open(examplepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict)
+        md += "~~~~ {.json}\n"
+        md += json.dumps(example, ensure_ascii=False, indent=4) + "\n"
+        md += "~~~~\n\n"
+        md += "\pagebreak\n"
+        md += "\n"
+
+    return md
 
 
 for obj in objects:
     filepath = os.path.join(SCHEMA_FOLDER, obj + ".json")
-    print generate_markdown_table((json.load(codecs.open(filepath, encoding='utf-8'),object_pairs_hook=collections.OrderedDict)))
+    print schema_to_md_table(json.load(codecs.open(filepath, encoding='utf-8'), object_pairs_hook=collections.OrderedDict))
 
