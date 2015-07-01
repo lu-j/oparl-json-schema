@@ -44,7 +44,7 @@ common_dependencies: $(OUT_FOLDER) $(SRC_FOLDER)/schema.md
 $(OUT_FOLDER):
 	 mkdir -p $(OUT_FOLDER);
 
-$(SRC_FOLDER)/schema.md: schema/* examples/*
+$(SRC_FOLDER)/schema.md: scripts/json_schema2markdown.py schema/ examples/
 	python scripts/json_schema2markdown.py schema/ examples/ > $@
 
 clean:
