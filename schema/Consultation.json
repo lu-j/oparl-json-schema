@@ -41,7 +41,6 @@
         "organization": {
             "description": "Gremium, dem die Sitzung zugewiesen ist, zu welcher der zuvor genannte Tagesordnungspunkt gehört. Hier kann auch eine mit Liste von Gremien angegeben werden (die verschiedenen `oparl:Body` und `oparl:System` angehören können). Die Liste ist dann geordnet. Das erste Gremium der Liste ist federführend.",
             "oparl:ref": "Organization",
-            "oparl:backref": "meeting",
             "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
@@ -58,7 +57,10 @@
             "type": "string"
         },
         "keyword": {
-            "type": "string"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         }
     }
 }

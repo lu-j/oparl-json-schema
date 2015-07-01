@@ -3,10 +3,10 @@
     "description": "Tagesordnungspunkte sind die Bestandteile von Sitzungen (`oparl:Meeting`). Jeder Tagesordnungspunkt widmet sich inhaltlich einem bestimmten Thema, wozu in der Regel auch die Beratung bestimmter Drucksachen gehört.\n\nDie Beziehung zwischen einem Tagesordnungspunkt und einer Drucksache wird über ein Objekt vom Typ `oparl:Consultation` hergestellt, das über die  Eigenschaft `consultation` referenziert werden kann.",
     "type": "object",
     "required": [
-        "type",
         "id",
-        "name",
-        "meeting"
+        "type",
+        "meeting",
+        "name"
     ],
     "oparl:optional": [
         "number",
@@ -70,10 +70,10 @@
             }
         },
         "keyword": {
+            "type": "array",
             "items": {
                 "type": "string"
-            },
-            "type": "array"
+            }
         },
         "created": {
             "type": "string",

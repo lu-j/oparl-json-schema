@@ -8,13 +8,11 @@
         "body",
         "name",
         "publishedDate",
-        "mainDocument",
         "mainFile"
     ],
     "oparl:optional": [
         "reference",
         "relatedPaper",
-        "auxiliaryDocument",
         "auxiliaryFile",
         "location",
         "consultation",
@@ -33,6 +31,7 @@
         "body": {
             "description": "Körperschaft, zu der die Drucksache gehört.",
             "oparl:ref": "Body",
+            "oparl:backref": "meeting",
             "oparl:cardinality": "n:1",
             "type": "string",
             "format": "uri"
@@ -69,7 +68,7 @@
             "description": "Die Haupt-Datei zu dieser Drucksache. Beispiel: Die Drucksache repräsentiert eine Beschlussvorlage und die Haupt-Datei enthält den Text der Beschlussvorlage.",
             "oparl:ref": "File",
             "oparl:backref": "paper",
-            "oparl:cardinality": "1:1"
+            "oparl:cardinality": "n:1",
             "type": "string",
             "format": "uri"
         },
@@ -118,8 +117,10 @@
             "format": "date-time"
         },
         "keyword": {
-            "type": "string",
-            "format": "uri"
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
         },
         "underDirectionof": {
             "description": "Federführung. Amt oder Abteilung, für die Inhalte oder Beantwortung der Drucksache verantwortlich.",

@@ -73,7 +73,6 @@
         "paper": {
             "description": "Falls die Datei zu einer oder mehreren Drucksachen (`oparl:Paper`) gehört, MÜSSEN diese Drucksachen über diese Eigenschaft angegeben werden.",
             "oparl:ref": "Paper",
-            "oparl:backref": "auxiliaryFile",
             "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
@@ -84,7 +83,6 @@
         "meeting": {
             "description": "Falls die Datei zu einer oder mehreren Sitzungen (`oparl:Meeting`) gehört, MÜSSEN diese Sitzungen über diese Eigenschaft angegeben werden.",
             "oparl:ref": "Meeting",
-            "oparl:backref": "auxiliaryFile",
             "oparl:cardinality": "n:m",
             "type": "array",
             "items": {
@@ -95,6 +93,7 @@
         "masterFile": {
             "description": "Datei, von der das aktuelle Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "oparl:ref": "File",
+            "oparl:backref": "derivativeFile",
             "oparl:cardinality": "n:1",
             "type": "string",
             "format": "uri"
@@ -102,6 +101,7 @@
         "derivativeFile": {
             "description": "Datei, die von dem aktuellen Objekt abgeleitet wurde. Details dazu in der allgemeinen Beschreibung weiter oben.",
             "oparl:ref": "File",
+            "oparl:backref": "masterFile",
             "oparl:cardinality": "1:n",
             "type": "array",
             "items": {

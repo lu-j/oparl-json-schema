@@ -3,8 +3,8 @@
     "description": "Jede natürliche Person, die in der parlamentarischen Arbeit tätig und insbesondere Mitglied in einer Gruppierung ([oparl:Organization](#oparl_organization)) ist, wird mit einem Objekt vom Typ `oparl:Person` abgebildet.",
     "type": "object",
     "required": [
-        "type",
         "id",
+        "type",
         "body",
         "name"
     ],
@@ -35,6 +35,7 @@
         "body": {
             "description": "Körperschaft, zu der die Person gehört.",
             "oparl:ref": "Body",
+            "oparl:backref": "person",
             "oparl:cardinality": "n:1",
             "type": "string",
             "format": "uri"

@@ -3,8 +3,8 @@
     "description": "Der Objekttyp `oparl:Body` dient dazu, eine Körperschaft und damit ein Parlament zu repräsentieren, zu dem der Server Informationen bereithält. Eine Körperschaft kann beispielsweise eine Gemeinde, ein Landkreis oder  ein kommunaler Zweckverband sein.\n\n Hätte das System beispielsweise den Zweck, Informationen über das kommunale Parlament der Stadt Köln, namentlich den Rat der Stadt Köln, abzubilden, dann müsste dieses System dazu ein Objekt vom Typ `oparl:Body` führen, welches die Stadt Köln repräsentiert.\n\nVom OParl-Server wird erwartet, dass er mindestens ein Objekt vom Typ `oparl:Body` bereithält. Teilen sich mehrere Körperschaften dasselbe technische System, können auf demselben Server auch mehrere Objekte vom Typ `oparl:Body` beherbergt werden.\n\nÜber die Zuordnung zu einem bestimmten `oparl:Body`-Objekt zeigen andere Objekte, wie beispielsweise Gremien oder Drucksachen, ihre Zugehörigkeit zu einer bestimmten Körperschaft und damit implizit zu einem bestimmten Parlament an.",
     "type": "object",
     "required": [
-        "type",
         "id",
+        "type",
         "system",
         "name",
         "paper",
@@ -14,7 +14,8 @@
     ],
     "oparl:optional": [
         "contactName",
-        "classification"
+        "classification",
+        "keyword"
     ],
     "properties": {
         "id": {
@@ -124,6 +125,7 @@
         "legislativeTerm": {
             "description": "Wahlperioden in dieser Körperschaft. Vgl. [Objektlisten](#objektlisten).",
             "oparl:ref": "LegislativeTerm",
+            "oparl:backref": "body",
             "oparl:cardinality": "1:n",
             "type": "array",
             "items": {
